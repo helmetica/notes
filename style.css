@@ -1,0 +1,97 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+button:focus,
+textarea:focus {
+  outline: none;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+  user-select: none;
+}
+
+#add-btn {
+  height: 40px;
+  width: 40px;
+  opacity: 0.7;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 16px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: #177efe;
+  color: white;
+}
+#add-btn:hover {
+  opacity: 1;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.editor {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 15px;
+  z-index: 10000;
+  margin: 110px auto;
+  background: #fff577;
+  box-shadow: 0 0 5px #bdbdbd;
+}
+
+.editor-close {
+  position: absolute;
+  top: -12px;
+  right: -18px;
+  font-size: 26px;
+  color: #bebebe;
+}
+.editor-save {
+  color: #177efe;
+}
+
+.editor-textarea {
+  margin: 10px 0;
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+}
+
+.editor-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note {
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  top: 20px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background: #fff577;
+  box-shadow: 0 0 5px #80808069;
+  cursor: pointer;
+}
+.note-content {
+  white-space: pre-wrap;
+}
+
+.note-delete {
+  position: absolute;
+  bottom: 8px;
+  right: 4px;
+  color: #ff8d8d;
+}

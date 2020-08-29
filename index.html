@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>notes</title>
+
+		<link rel="stylesheet" href="style.css" type="text/css">
+
+		<link rel="stylesheet" href="static/css/animation.css" type="text/css"/>
+		<link rel="stylesheet" href="static/css/fontello.css" type="text/css"/>
+		<link rel="stylesheet" href="static/css/fontello-codes.css" type="text/css"/>
+		<link rel="stylesheet" href="static/css/fontello-embedded.css" type="text/css"/>
+		<link rel="stylesheet" href="static/css/fontello-ie7.css" type="text/css"/>
+		<link rel="stylesheet" href="static/css/fontello-ie7-codes.css" type="text/css"/>
+	</head>
+
+	<body>
+		<div
+			id="app"
+			@mousemove="onMouseMove"
+		>
+			<button
+				id="add-btn"
+				@click="onClickAddNote"
+			>
+				<i class="icon-plus"></i>
+			</button>
+
+			<div
+				v-for="(note, index) in notes"
+				:key="index"
+				:style="{
+					top: `${note.top}px`,
+					left: `${note.left}px`,
+					zIndex: note.zIndex,
+				}"
+				class="note"
+				@mousedown="onMouseDown($event, index)"
+        @mouseup="onMouseUp($event, index)"
+			>
+				<div class="note-content">{{ note.content }}</div>
+
+				<i
+					title="Удалить"
+					class="note-delete icon icon-trash"
+					@click="onClickDeleteNote(index)"
+				></i>
+			</div>
+
+			<div
+				v-if="openNoteIndex !== null"
+				ref="noteEditor"
+				class="editor"
+			>
+				<i
+					title="Закрыть"
+					class="editor-close icon icon-cancel-circled"
+					@click="onClickCloseEditor"
+				></i>
+
+				<div class="editor-top">
+					<i
+						title="Сохранить"
+						class="editor-save icon icon-floppy"
+						@click="onClickSave"
+					></i>
+				</div>
+
+				<textarea
+          v-model="editorContent"
+          class="editor-textarea"
+				></textarea>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
